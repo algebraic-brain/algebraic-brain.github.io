@@ -28,38 +28,39 @@
 Магма $\mathtt{Fact}$
 ----------
 
-Построю <a href="./reductive-magma-definition.html">редуктивную магму</a> $\mathtt{Fact}$, которая по сути предназначена для вычисления факториала.
-В основе это свободная магма над алфавитом $\{\mathtt{fact}, \mathtt{mul}\} \cup \mathbb{N}$, где $\mathbb{N}$ это
-натуральные числа. Предпорядок над $\mathcal{B}_{\mathtt{Fact}}$ порожден следующими неравенствами:
+Построим <a href="./reductive-magma-definition.html">редуктивную магму</a> $\mathtt{Fact}$, которая, по сути, может быть использована для
+вычисления факториала. В основе это свободная магма над алфавитом $\{\mathtt{fact}, \mathtt{mul}\} \cup \mathbb{N}$,
+где $\mathbb{N}$ это натуральные числа. Предпорядок над $\mathcal{B}_{\mathtt{Fact}}$ порожден следующими неравенствами:
 
-                    (1)    $\forall n, m \in \mathbb{N} : \mathtt{mul}\,n\,m \preceq n \cdot m$
+                (1)    $\forall n, m \in \mathbb{N} : \mathtt{mul}\,n\,m \preceq n \cdot m$
 
-                    (2)    $\mathtt{fact}\,0 \preceq 1$
+                (2)    $\mathtt{fact}\,0 \preceq 1$
 
-                    (3)    $\forall n > 0 : \mathtt{fact}\,n \preceq \mathtt{mul}\,n\,(\mathtt{fact}\,(n - 1))$
+                (3)    $\forall n > 0 : \mathtt{fact}\,n \preceq \mathtt{mul}\,n\,(\mathtt{fact}\,(n - 1))$
 
 где "$\cdot$" это умножение натуральных чисел.
 
 Можно показать, например, что $\mathtt{fact}\,3\preceq 6$:
 
-                                    $\mathtt{fact}\,3 \preceq$
-    (по (3))
-                                    $\mathtt{mul}\,3\,(\mathtt{fact}\,2) \preceq$
-    (по (3) и правой редукции)
-                                    $\mathtt{mul}\,3\,(\mathtt{mul}\,2\,(\mathtt{fact}\,1)) \preceq$
-    (по (3) и правой редукции)
-                                    $\mathtt{mul}\,3\,(\mathtt{mul}\,2\,(\mathtt{mul}\,1\,(\mathtt{fact}\,0))) \preceq$
-    (по (2) и правой редукции)
-                                    $\mathtt{mul}\,3\,(\mathtt{mul}\,2\,(\mathtt{mul}\,1\,1)) \preceq$
-    (по (1) и правой редукции)
-                                    $\mathtt{mul}\,3\,(\mathtt{mul}\,2\,1) \preceq$
-    (по (1) и правой редукции)
-                                    $\mathtt{mul}\,3\,2 \preceq$
-    (по (1))
-                                    $6$
+                                                $\mathtt{fact}\,3 \preceq$
+                (по (3))
+                                                $\mathtt{mul}\,3\,(\mathtt{fact}\,2) \preceq$
+                (по (3) и правой редукции)
+                                                $\mathtt{mul}\,3\,(\mathtt{mul}\,2\,(\mathtt{fact}\,1)) \preceq$
+                (по (3) и правой редукции)
+                                                $\mathtt{mul}\,3\,(\mathtt{mul}\,2\,(\mathtt{mul}\,1\,(\mathtt{fact}\,0))) \preceq$
+                (по (2) и правой редукции)
+                                                $\mathtt{mul}\,3\,(\mathtt{mul}\,2\,(\mathtt{mul}\,1\,1)) \preceq$
+                (по (1) и правой редукции)
+                                                $\mathtt{mul}\,3\,(\mathtt{mul}\,2\,1) \preceq$
+                (по (1) и правой редукции)
+                                                $\mathtt{mul}\,3\,2 \preceq$
+                (по (1))
+                                                $6$
 
 Можно также удостовериться, что данная магма в некотором смысле задаёт вычисление
-факториала, однако я вернусь к этому позже, когда будут даны дополнительные определения.
+факториала, однако мы вернёмся к этому позже, когда будут даны дополнительные
+определения.
 
 </pre>
 </body>
