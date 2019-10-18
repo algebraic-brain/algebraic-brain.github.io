@@ -48,8 +48,8 @@
                             $b\,\dot{a}c\equiv (a\,b)\,c$
 
 <em>Расширенная редуктивная магма</em> содержит своем базовом множестве функциональные
-элементы $\otimes$, $\circ$, $\mathtt{del}$, $\mathtt{dup}$ и константу $\mathtt{id}$, удовлетворяющие следующим неравенствам
-для любых $a$, $b$, $c$ и $d$:
+элементы $\otimes$, $\circ$, $\mathtt{del}$, $\mathtt{dup}$, $\mathtt{swap}$ и константу $\mathtt{id}$, удовлетворяющие следующим неравен-
+ствам для любых $a$, $b$, $c$ и $d$:
 
         (РРМ 1)             $(a\,\mcirc\,b)\,c \preceq a\,(b\,c)$
 
@@ -59,9 +59,11 @@
 
         (РРМ 4)             $a\,\mathtt{id} \preceq a$
 
-        (РРМ 5)             $\mathtt{dup}\,a \preceq a\,\mtimes\,a$
+        (РРМ 5)             $\mathtt{dup}\,a \preceq a\,\mtimes\ a$
 
         (РРМ 6)             $\mathtt{del}\,a \preceq \mathtt{id}$
+
+        (РРМ 7)             $\mathtt{swap}\,(a\,\mtimes\,b) \preceq b\,\mtimes\ a$
 
 Введём также соглашения для обозначения переменных. Те переменные, которые пробегают
 $\mathcal{F}_A$ будем обозначать буквами $f$, $g$, $h$, возможно с индексами. Те, что пробегают $\mathcal{C}_A$,
