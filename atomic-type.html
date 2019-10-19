@@ -33,14 +33,24 @@
                                 Атомарные типы над РРМ
                                 ----------------------
 
-    Будем говорить, что элемент $f$ имеет атомарный тип $a \leadsto b$ и записывать $f : a \leadsto b$
-    если и только если $f\,a \preceq b$. Вполне очевидны следующие свойства атомарных типов:
+    Будем говорить, что элемент $f$ имеет инэквациональный тип $a \leadsto b$ и записывать
+    $f : a \leadsto b$ если и только если $f\,a \preceq b$. Вполне очевидны следующие свойства
+    инэквациональных типов:
 
                                       $\mathtt{id} : a\leadsto a$
 
                       $(f : a\leadsto b) \land (g : b\leadsto c) \implies g\,\mcirc\ f: a\leadsto c$
     
     для любых $a$, $b$, $c$, $g$ и $f$.
+
+    Введём обозначения:
+                      $\mathtt{true} \equiv \mathtt{head} \equiv (\mathtt{uncurry}\,\mathtt{id})\,\mcirc\ (\mathtt{id}\,\mtimes\ \mathtt{del})$
+                      $\mathtt{false} \equiv \mathtt{tail} \equiv (\mathtt{uncurry}\,\mathtt{id})\,\mcirc\ (\mathtt{del}\,\mtimes\ \mathtt{id})$
+
+    Будем говорить, что элемент $a$ имеет пропозициональный тип $f$ и записывать $a : \langle f\rangle$
+    если и только если $f\,a \preceq \mathtt{true}$.
+
+    Инэквациональные и пропозициональные типы называются атомарными.
 
 
     <a href="./extended-magma.html">&lt;&lt;</a>                                                                        >>
