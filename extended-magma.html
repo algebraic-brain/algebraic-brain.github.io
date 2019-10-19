@@ -60,8 +60,8 @@
                                 $b\,\dot{a}c\equiv (a\,b)\,c$
 
     <em>Расширенная редуктивная магма</em> содержит своем базовом множестве функциональные
-    элементы $\otimes$, $\circ$, $\mathtt{del}$, $\mathtt{dup}$, $\mathtt{swap}$, $\mathtt{curry}$, $\mathtt{uncurry}$ и элемент $\mathtt{id}$, удовлетворяющие
-    следующим неравенствам для любых $a$, $b$, $c$ и $d$:
+    элементы $\otimes$, $\circ$, $\mathtt{del}$, $\mathtt{dup}$, $\mathtt{swap}$, $\mathtt{curry}$, $\mathtt{uncurry}$, $\mathtt{assoc}$, $\mathtt{unassoc}$ и элемент
+    $\mathtt{id}$, удовлетворяющие следующим неравенствам для любых $a$, $b$, $c$ и $d$:
 
             (РРМ 1)             $(a\,\mcirc\,b)\,c \preceq a\,(b\,c)$
 
@@ -77,9 +77,13 @@
 
             (РРМ 7)             $\mathtt{swap}\,(a\,\mtimes\ b) \preceq b\,\mtimes\ a$
 
-            (РРМ 8)             $(\mathtt{uncurry}\,a)\,(b\,\mtimes\ c) \preceq a\,b\,c$
+            (РРМ 8)             $(\mathtt{curry}\,a)\,b\,c \preceq a\,(b\,\mtimes\ c)$
 
-            (РРМ 9)             $(\mathtt{curry}\,a)\,b\,c \preceq a\,(b\,\mtimes\ c)$
+            (РРМ 9)             $(\mathtt{uncurry}\,a)\,(b\,\mtimes\ c) \preceq a\,b\,c$
+
+            (РРМ 10)            $\mathtt{assoc}\,((a\,\mtimes\ b)\,\mtimes\ c) \preceq a\,\mtimes\ (b\,\mtimes\ c)$
+
+            (РРМ 11)            $\mathtt{unassoc}\,(a\,\mtimes\ (b\,\mtimes\ c)) \preceq (a\,\mtimes\ b)\,\mtimes\ c$
 
     Множества $\mathcal{F}_A$ и $\mathcal{C}_A$ замкнуты относительно $\otimes$ и $\circ$ в следующем смысле:
 
