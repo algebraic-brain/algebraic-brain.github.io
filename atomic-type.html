@@ -45,16 +45,43 @@
     
     для любых $a$, $b$, $c$, $g$ и $f$.
 
-    Введём обозначения:
-
-                      $\mathtt{true} \equiv \mathtt{head} \equiv (\mathtt{uncurry}\,\mathtt{id})\,\mcirc\ (\mathtt{id}\,\mtimes\ \mathtt{del})$
-
-                      $\mathtt{false} \equiv \mathtt{tail} \equiv (\mathtt{uncurry}\,\mathtt{id})\,\mcirc\ (\mathtt{del}\,\mtimes\ \mathtt{id})$
-
-    Будем говорить, что элемент $a$ имеет пропозициональный тип $f$ и записывать $a : \langle f\rangle$
+    Будем говорить, что элемент $a$ имеет пропозициональный тип $\langle f\rangle$ и записывать $a : \langle f\rangle$
     если и только если $f\,a \preceq \mathtt{true}$.
 
-    Инэквациональные и пропозициональные типы называются атомарными.
+    Наконец, элемент $a$ имеет селективный тип $\{f\}$ (записывается $a : \{f\}$) если и только
+    если $f\,a \preceq a$.
+
+    Инэквациональные, пропозициональные и селективные типы называются атомарными.
+
+    Заметим, что <a href="./extended-magma.html">комбинатор $\mathtt{select}$</a> позволяет превратить пропозициональный тип
+    в селективный. Пусть, например, $a$ имеет тип $\langle f\rangle$. Покажем, что для
+
+                        $\breve{f} = \mathtt{select}\,\mcirc\,(f\,\mtimes\ \mathtt{id})\,\mcirc\,(\mathtt{id}\,\mtimes\ \mathtt{dup})\,\mcirc\,\mathtt{dup}$
+                        
+    верно $a : \{\breve{f}\}$. Действительно,
+
+                        $(\mathtt{select}\,\mcirc\,(f\,\mtimes\ \mathtt{id})\,\mcirc\,(\mathtt{id}\,\mtimes\ \mathtt{dup})\,\mcirc\,\mathtt{dup}\,)\,a \preceq$
+
+                        $(\mathtt{select}\,\mcirc\,(f\,\mtimes\ \mathtt{id})\,\mcirc\,(\mathtt{id}\,\mtimes\ \mathtt{dup}))\,(a\,\mtimes\ a) \preceq$
+
+                        $\mathtt{select}\,((f\,\mtimes\ \mathtt{id})\,(a\,\mtimes\ (a\,\mtimes\ a))) \preceq$
+
+                        $\mathtt{select}\,((f\,a)\,\mtimes\ (a\,\mtimes\ a)) \preceq$
+
+                        $\mathtt{select}\,(\mathtt{true}\,\mtimes\ (a\,\mtimes\ a)) =$
+
+                        $(\mathtt{apply}\,\mcirc\ (\mathtt{id}\,\mtimes\ (\mathtt{id}\,\mtimes\ \mathtt{null})))\,(\mathtt{true}\,\mtimes\ (a\,\mtimes\ a)) \preceq$
+
+                        $\mathtt{apply}\,\mcirc\ (\mathtt{true}\,\mtimes\ ((\mathtt{id}\,\mtimes\ \mathtt{null})\,(a\,\mtimes\ a)))\preceq$
+
+                        $\mathtt{apply}\,\mcirc\ (\mathtt{true}\,\mtimes\ (a\,\mtimes\ \mathtt{null}))\preceq$
+
+                        $\mathtt{true}\,\mcirc\,(a\,\mtimes\ \mathtt{null})\preceq$
+
+                        $a$
+
+    Таким же образом можно показать, что если $a$ не имеет тип $\langle f\rangle$ и $f\,a \preceq \mathtt{false}$, то
+    $\breve{f}\,a \preceq \mathtt{null}$.
 
 
     <a href="./extended-magma.html">&lt;&lt;</a>                                                                        >>

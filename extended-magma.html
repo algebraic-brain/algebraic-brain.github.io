@@ -61,9 +61,10 @@
 
                                 $b\,\dot{a}c\equiv (a\,b)\,c$
 
-    <em>Расширенная редуктивная магма</em> содержит своем базовом множестве функциональные
-    элементы $\otimes$, $\circ$, $\mathtt{del}$, $\mathtt{dup}$, $\mathtt{swap}$, $\mathtt{curry}$, $\mathtt{uncurry}$, $\mathtt{assoc}$, $\mathtt{unassoc}$ и элемент
-    $\mathtt{id}$, удовлетворяющие следующим неравенствам для любых $a$, $b$, $c$ и $d$:
+    <em>Расширенная редуктивная магма</em>, по определению, это <a href="./reductive-magma-definition.html">нормализующая редуктивная магма</a>,
+    которая содержит своем базовом множестве функциональные нормальные формы $\otimes$, $\circ$, $\mathtt{del}$,
+    $\mathtt{dup}$, $\mathtt{swap}$, $\mathtt{curry}$, $\mathtt{uncurry}$, $\mathtt{assoc}$, $\mathtt{unassoc}$ и нормальные формы $\mathtt{id}$, $\mathtt{null}$,
+    удовлетворяющие следующим неравенствам для любых $a$, $b$, $c$ и $d$:
 
             (РРМ 1)             $(a\,\mcirc\,b)\,c \preceq a\,(b\,c)$
 
@@ -73,19 +74,23 @@
 
             (РРМ 4)             $a\,\mathtt{id} \preceq a$
 
-            (РРМ 5)             $\mathtt{dup}\,a \preceq a\,\mtimes\ a$
+            (РРМ 5)             $\mathtt{null}\,a \preceq \mathtt{null}$
 
-            (РРМ 6)             $\mathtt{del}\,a \preceq \mathtt{id}$
+            (РРМ 6)             $a\,\mathtt{null} \preceq \mathtt{null}$
 
-            (РРМ 7)             $\mathtt{swap}\,(a\,\mtimes\ b) \preceq b\,\mtimes\ a$
+            (РРМ 7)             $\mathtt{dup}\,a \preceq a\,\mtimes\ a$
 
-            (РРМ 8)             $(\mathtt{curry}\,a)\,b\,c \preceq a\,(b\,\mtimes\ c)$
+            (РРМ 8)             $\mathtt{del}\,a \preceq \mathtt{id}$
 
-            (РРМ 9)             $(\mathtt{uncurry}\,a)\,(b\,\mtimes\ c) \preceq a\,b\,c$
+            (РРМ 9)             $\mathtt{swap}\,(a\,\mtimes\ b) \preceq b\,\mtimes\ a$
 
-            (РРМ 10)            $\mathtt{assoc}\,((a\,\mtimes\ b)\,\mtimes\ c) \preceq a\,\mtimes\ (b\,\mtimes\ c)$
+            (РРМ 10)            $(\mathtt{curry}\,a)\,b\,c \preceq a\,(b\,\mtimes\ c)$
 
-            (РРМ 11)            $\mathtt{unassoc}\,(a\,\mtimes\ (b\,\mtimes\ c)) \preceq (a\,\mtimes\ b)\,\mtimes\ c$
+            (РРМ 11)            $(\mathtt{uncurry}\,a)\,(b\,\mtimes\ c) \preceq a\,b\,c$
+
+            (РРМ 12)            $\mathtt{assoc}\,((a\,\mtimes\ b)\,\mtimes\ c) \preceq a\,\mtimes\ (b\,\mtimes\ c)$
+
+            (РРМ 13)            $\mathtt{unassoc}\,(a\,\mtimes\ (b\,\mtimes\ c)) \preceq (a\,\mtimes\ b)\,\mtimes\ c$
 
     Множества $\mathcal{F}_A$ и $\mathcal{C}_A$ замкнуты относительно $\otimes$ и $\circ$ в следующем смысле:
 
@@ -99,6 +104,20 @@
 
     для любых $a$, $f$, $g$, $x$ и $y$. Во всех остальных случаях принадлежность $a\,\mcirc\ b$ и $a\,\mtimes\ b$
     будет ясна из контекста.
+
+    Введём обозначения:
+
+                      $\mathtt{apply} \equiv \mathtt{uncurry}\,\mathtt{id}$
+
+                      $\mathtt{true} \equiv \mathtt{head} \equiv \mathtt{apply}\,\mcirc\ (\mathtt{id}\,\mtimes\ \mathtt{del})$
+
+                      $\mathtt{false} \equiv \mathtt{tail} \equiv \mathtt{apply}\,\mcirc\ (\mathtt{del}\,\mtimes\ \mathtt{id})$
+
+                      $\mathtt{select} \equiv \mathtt{apply}\,\mcirc\ (\mathtt{id}\,\mtimes\ (\mathtt{id}\,\mtimes\ \mathtt{null}))$
+
+    Элементы $\otimes$, $\circ$, $\mathtt{del}$, $\mathtt{dup}$, $\mathtt{swap}$, $\mathtt{curry}$, $\mathtt{uncurry}$, $\mathtt{assoc}$, $\mathtt{unassoc}$, $\mathtt{id}$,
+    $\mathtt{null}$, а также их комбинации, являющиеся нормальными формами, называются
+    <em>комбинаторами</em> РРМ.
 
 
     <a href="./magma-fact.html">&lt;&lt;</a>                                                                        <a href="./atomic-type.html">&gt;&gt;</a>
