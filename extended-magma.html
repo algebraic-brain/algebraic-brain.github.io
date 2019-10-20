@@ -62,7 +62,7 @@
                                 $b\,\dot{a}c\equiv (a\,b)\,c$
 
     <em>Расширенная редуктивная магма</em>, по определению, это <a href="./reductive-magma-definition.html">нормализующая редуктивная магма</a>,
-    которая содержит своем базовом множестве функциональные нормальные формы $\otimes$, $\circ$, $\mathtt{del}$,
+    которая содержит в своем базовом множестве функциональные нормальные формы $\otimes$, $\circ$, $\mathtt{del}$,
     $\mathtt{dup}$, $\mathtt{swap}$, $\mathtt{curry}$, $\mathtt{uncurry}$, $\mathtt{assoc}$, $\mathtt{unassoc}$, $\mathtt{leq}$ и нормальные формы $\mathtt{id}$, $\mathtt{null}$,
     удовлетворяющие следующим неравенствам для любых $a$, $b$, $c$ и $d$:
 
@@ -92,12 +92,13 @@
 
             (РРМ 13)            $\mathtt{unassoc}\,(a\,\mtimes\ (b\,\mtimes\ c)) \preceq (a\,\mtimes\ b)\,\mtimes\ c$
 
-            (РРМ 14)            $\mathtt{leq}\,(a\,\mtimes\ b) \preceq \begin{cases}
-\mathtt{true} &\text{если } a\preceq b \\
+            (РРМ 14)            $\mathtt{eq}\,(a\,\mtimes\ b) \preceq \begin{cases}
+\mathtt{true} &\text{если } a = b \\
 \mathtt{false} &\text{в противном случае}
 \end{cases}$
 
-    Опреления $\mathtt{true}$ и $\mathtt{false}$ из (РРМ 14) даны ниже.
+    Определения $\mathtt{true}$ и $\mathtt{false}$ из (РРМ 14) даны ниже.
+    
     Множества $\mathcal{F}_A$ и $\mathcal{C}_A$ замкнуты относительно $\otimes$ и $\circ$ в следующем смысле:
 
                                 $f\,\mtimes\ a \in \mathcal{F}_A$
