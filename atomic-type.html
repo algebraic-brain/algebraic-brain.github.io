@@ -20,6 +20,23 @@
             macros: {
                 "\\mtimes": "\\dot{\\otimes}",
                 "\\mcirc": "\\dot{\\circ}",
+                "\\idC": "\\mathtt{id}",
+                "\\nullC": "\\mathtt{null}",
+                "\\delC": "\\mathtt{del}",
+                "\\dupC": "\\mathtt{dup}",
+                "\\swapC": "\\mathtt{swap}",
+                "\\curryC": "\\mathtt{curry}",
+                "\\uncurryC": "\\mathtt{uncurry}",
+                "\\assocC": "\\mathtt{assoc}",
+                "\\unassocC": "\\mathtt{unassoc}",
+                "\\leqC": "\\mathtt{leq}",
+                "\\applyC": "\\mathtt{apply}",
+                "\\trueC": "\\mathtt{true}",
+                "\\falseC": "\\mathtt{false}",
+                "\\headC": "\\mathtt{head}",
+                "\\tailC": "\\mathtt{tail}",
+                "\\selectC": "\\mathtt{select}",
+                "\\PropC": "\\mathtt{Prop}",
             }
         });
     }
@@ -39,51 +56,51 @@
     $f : a \leadsto b$ если и только если $f\,a \preceq b$. Вполне очевидны следующие свойства
     инэквациональных типов:
 
-                                      $\mathtt{id} : a\leadsto a$
+                                      $\idC : a\leadsto a$
 
                       $(f : a\leadsto b) \land (g : b\leadsto c) \implies g\,\mcirc\ f: a\leadsto c$
     
     для любых $a$, $b$, $c$, $g$ и $f$.
 
     Будем говорить, что элемент $a$ имеет пропозициональный тип $\langle f\rangle$ и записывать $a : \langle f\rangle$
-    если и только если $f\,a \preceq \mathtt{true}$.
+    если и только если $f\,a \preceq \trueC$.
 
     Наконец, элемент $a$ имеет селективный тип $\{f\}$ (записывается $a : \{f\}$) если и только
     если $f\,a \preceq a$.
 
     Инэквациональные, пропозициональные и селективные типы называются атомарными.
 
-    Заметим, что <a href="./extended-magma.html">комбинатор</a> <a href="./extended-magma.html">$\mathtt{select}$</a> позволяет превратить пропозициональный тип
+    Заметим, что <a href="./extended-magma.html">комбинатор</a> <a href="./extended-magma.html">$\selectC$</a> позволяет превратить пропозициональный тип
     в селективный. Пусть, например, $a$ имеет тип $\langle f\rangle$. Покажем, что для
 
-                        $\mathtt{Prop}(f) = \mathtt{select}\,\mcirc\,(f\,\mtimes\ \mathtt{id})\,\mcirc\,(\mathtt{id}\,\mtimes\ \mathtt{dup})\,\mcirc\,\mathtt{dup}$
+                        $\mathtt{Prop}(f) = \selectC\,\mcirc\,(f\,\mtimes\ \idC)\,\mcirc\,(\idC\,\mtimes\ \dupC)\,\mcirc\,\dupC$
                         
-    верно $a : \{\mathtt{Prop}(f)\}$. Действительно,
+    верно $a : \{\PropC(f)\}$. Действительно,
 
-                        $(\mathtt{select}\,\mcirc\,(f\,\mtimes\ \mathtt{id})\,\mcirc\,(\mathtt{id}\,\mtimes\ \mathtt{dup})\,\mcirc\,\mathtt{dup}\,)\,a \preceq$
+                        $(\selectC\,\mcirc\,(f\,\mtimes\ \idC)\,\mcirc\,(\idC\,\mtimes\ \dupC)\,\mcirc\,\dupC)\,a \preceq$
 
-                        $(\mathtt{select}\,\mcirc\,(f\,\mtimes\ \mathtt{id})\,\mcirc\,(\mathtt{id}\,\mtimes\ \mathtt{dup}))\,(a\,\mtimes\ a) \preceq$
+                        $(\selectC\,\mcirc\,(f\,\mtimes\ \idC)\,\mcirc\,(\idC\,\mtimes\ \dupC))\,(a\,\mtimes\ a) \preceq$
 
-                        $\mathtt{select}\,((f\,\mtimes\ \mathtt{id})\,(a\,\mtimes\ (a\,\mtimes\ a))) \preceq$
+                        $\selectC\,((f\,\mtimes\ \idC)\,(a\,\mtimes\ (a\,\mtimes\ a))) \preceq$
 
-                        $\mathtt{select}\,((f\,a)\,\mtimes\ (a\,\mtimes\ a)) \preceq$
+                        $\selectC\,((f\,a)\,\mtimes\ (a\,\mtimes\ a)) \preceq$
 
-                        $\mathtt{select}\,(\mathtt{true}\,\mtimes\ (a\,\mtimes\ a)) =$
+                        $\selectC\,(\trueC\,\mtimes\ (a\,\mtimes\ a)) =$
 
-                        $(\mathtt{apply}\,\mcirc\ (\mathtt{id}\,\mtimes\ (\mathtt{id}\,\mtimes\ \mathtt{null})))\,(\mathtt{true}\,\mtimes\ (a\,\mtimes\ a)) \preceq$
+                        $(\applyC\,\mcirc\ (\idC\,\mtimes\ (\idC\,\mtimes\ \nullC)))\,(\trueC\,\mtimes\ (a\,\mtimes\ a)) \preceq$
 
-                        $\mathtt{apply}\,\mcirc\ (\mathtt{true}\,\mtimes\ ((\mathtt{id}\,\mtimes\ \mathtt{null})\,(a\,\mtimes\ a)))\preceq$
+                        $\applyC\,\mcirc\ (\trueC\,\mtimes\ ((\idC\,\mtimes\ \nullC)\,(a\,\mtimes\ a)))\preceq$
 
-                        $\mathtt{apply}\,\mcirc\ (\mathtt{true}\,\mtimes\ (a\,\mtimes\ \mathtt{null}))\preceq$
+                        $\applyC\,\mcirc\ (\trueC\,\mtimes\ (a\,\mtimes\ \nullC))\preceq$
 
-                        $\mathtt{id}\,(\mathtt{true}\,(a\,\mtimes\ \mathtt{null}))\preceq$
+                        $\idC\,(\trueC\,(a\,\mtimes\ \nullC))\preceq$
 
-                        $\mathtt{id}\,a\preceq$
+                        $\idC\,a\preceq$
 
                         $a$
 
-    Таким же образом можно показать, что если $a$ не имеет тип $\langle f\rangle$ и $f\,a \preceq \mathtt{false}$, то
-    $\mathtt{Prop}(f)\,a \preceq \mathtt{null}$.
+    Таким же образом можно показать, что если $a$ не имеет тип $\langle f\rangle$ и $f\,a \preceq \falseC$, то
+    $\PropC(f)\,a \preceq \nullC$.
 
 
     <a href="./extended-magma.html">&lt;&lt;</a>                                                                        >>
