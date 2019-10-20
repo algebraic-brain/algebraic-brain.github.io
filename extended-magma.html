@@ -19,7 +19,24 @@
             ignoredTags: ["script", "noscript", "style", "textarea"],
             macros: {
                 "\\mtimes": "\\dot{\\otimes}",
-                "\\mcirc": "\\dot{\\circ}"
+                "\\mcirc": "\\dot{\\circ}",
+                "\\idC": "\\mathtt{id}",
+                "\\nullC": "\\mathtt{null}",
+                "\\delC": "\\mathtt{del}",
+                "\\dupC": "\\mathtt{dup}",
+                "\\swapC": "\\mathtt{swap}",
+                "\\curryC": "\\mathtt{curry}",
+                "\\uncurryC": "\\mathtt{uncurry}",
+                "\\assocC": "\\mathtt{assoc}",
+                "\\unassocC": "\\mathtt{unassoc}",
+                "\\eqC": "\\mathtt{eq}",
+                "\\applyC": "\\mathtt{apply}",
+                "\\trueC": "\\mathtt{true}",
+                "\\falseC": "\\mathtt{false}",
+                "\\headC": "\\mathtt{head}",
+                "\\tailC": "\\mathtt{tail}",
+                "\\selectC": "\\mathtt{select}",
+                "\\PropC": "\\mathtt{Prop}",
             }
         });
     }
@@ -64,40 +81,41 @@
     <em>Расширенная редуктивная магма</em>, по определению, это <a href="./reductive-magma-definition.html">конфлюэнтная редуктивная магма</a><sup>1</sup>,
     которая содержит в своем базовом множестве функциональные нормальные формы $\otimes$, $\circ$, $\mathtt{del}$,
     $\mathtt{dup}$, $\mathtt{swap}$, $\mathtt{curry}$, $\mathtt{uncurry}$, $\mathtt{assoc}$, $\mathtt{unassoc}$, $\mathtt{eq}$ и нормальные формы $\mathtt{id}$, $\mathtt{null}$,
-    удовлетворяющие следующим неравенствам для любых $a$, $b$, $c$ и $d$:
+    удовлетворяющие следующим аксиомам для любых $a$, $b$, $c$ и $d$:
 
-            (РРМ 1)             $(a\,\mcirc\,b)\,c \preceq a\,(b\,c)$
+    (РРМ 1)             $(a\,\mcirc\,b)\,c \preceq a\,(b\,c)$
 
-            (РРМ 2)             $(a\,\mtimes\,b)\,(c\,\mtimes\,d) \preceq (a\,c)\,\mtimes\,(b\,d)$
+    (РРМ 2)             $(a\,\mtimes\,b)\,(c\,\mtimes\,d) \preceq (a\,c)\,\mtimes\,(b\,d)$
 
-            (РРМ 3)             $\mathtt{id}\,a \preceq a$
+    (РРМ 3)             $\mathtt{id}\,a \preceq a$
 
-            (РРМ 4)             $a\,\mathtt{id} \preceq a$
+    (РРМ 4)             $a\,\mathtt{id} \preceq a$
 
-            (РРМ 5)             $\mathtt{null}\,a \preceq \mathtt{null}$
+    (РРМ 5)             $\mathtt{null}\,a \preceq \mathtt{null}$
 
-            (РРМ 6)             $a\,\mathtt{null} \preceq \mathtt{null}$
+    (РРМ 6)             $a\,\mathtt{null} \preceq \mathtt{null}$
 
-            (РРМ 7)             $\mathtt{dup}\,a \preceq a\,\mtimes\ a$
+    (РРМ 7)             $\mathtt{dup}\,a \preceq a\,\mtimes\ a$
 
-            (РРМ 8)             $\mathtt{del}\,a \preceq \mathtt{id}$
+    (РРМ 8)             $\neg(a\,\preceq\,\nullC)\implies\mathtt{del}\,a \preceq \mathtt{id}$
 
-            (РРМ 9)             $\mathtt{swap}\,(a\,\mtimes\ b) \preceq b\,\mtimes\ a$
+    (РРМ 9)             $\mathtt{swap}\,(a\,\mtimes\ b) \preceq b\,\mtimes\ a$
 
-            (РРМ 10)            $(\mathtt{curry}\,a)\,b\,c \preceq a\,(b\,\mtimes\ c)$
+    (РРМ 10)            $(\mathtt{curry}\,a)\,b\,c \preceq a\,(b\,\mtimes\ c)$
 
-            (РРМ 11)            $(\mathtt{uncurry}\,a)\,(b\,\mtimes\ c) \preceq a\,b\,c$
+    (РРМ 11)            $(\mathtt{uncurry}\,a)\,(b\,\mtimes\ c) \preceq a\,b\,c$
 
-            (РРМ 12)            $\mathtt{assoc}\,((a\,\mtimes\ b)\,\mtimes\ c) \preceq a\,\mtimes\ (b\,\mtimes\ c)$
+    (РРМ 12)            $\mathtt{assoc}\,((a\,\mtimes\ b)\,\mtimes\ c) \preceq a\,\mtimes\ (b\,\mtimes\ c)$
 
-            (РРМ 13)            $\mathtt{unassoc}\,(a\,\mtimes\ (b\,\mtimes\ c)) \preceq (a\,\mtimes\ b)\,\mtimes\ c$
+    (РРМ 13)            $\mathtt{unassoc}\,(a\,\mtimes\ (b\,\mtimes\ c)) \preceq (a\,\mtimes\ b)\,\mtimes\ c$
 
-            (РРМ 14)            $\mathtt{eq}\,(a\,\mtimes\ b) \preceq \begin{cases}
+    (РРМ 14)            $\mathtt{eq}\,(a\,\mtimes\ b) \preceq \begin{cases}
 \mathtt{true} &\text{если } a = b \\
 \mathtt{false} &\text{в противном случае}
 \end{cases}$
 
-    Определения $\mathtt{true}$ и $\mathtt{false}$ из (РРМ 14) даны ниже.
+    Элементы, не имеющие нормальной формы $\nullC$, называются допустимыми. Определения $\mathtt{true}$
+    и $\mathtt{false}$ из (РРМ 14) даны ниже.
     
     Множества $\mathcal{F}_A$ и $\mathcal{C}_A$ замкнуты относительно $\otimes$ и $\circ$ в следующем смысле:
 
