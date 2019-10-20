@@ -63,7 +63,7 @@
 
     <em>Расширенная редуктивная магма</em>, по определению, это <a href="./reductive-magma-definition.html">нормализующая редуктивная магма</a>,
     которая содержит своем базовом множестве функциональные нормальные формы $\otimes$, $\circ$, $\mathtt{del}$,
-    $\mathtt{dup}$, $\mathtt{swap}$, $\mathtt{curry}$, $\mathtt{uncurry}$, $\mathtt{assoc}$, $\mathtt{unassoc}$ и нормальные формы $\mathtt{id}$, $\mathtt{null}$,
+    $\mathtt{dup}$, $\mathtt{swap}$, $\mathtt{curry}$, $\mathtt{uncurry}$, $\mathtt{assoc}$, $\mathtt{unassoc}$, $\mathtt{leq}$ и нормальные формы $\mathtt{id}$, $\mathtt{null}$,
     удовлетворяющие следующим неравенствам для любых $a$, $b$, $c$ и $d$:
 
             (РРМ 1)             $(a\,\mcirc\,b)\,c \preceq a\,(b\,c)$
@@ -92,6 +92,12 @@
 
             (РРМ 13)            $\mathtt{unassoc}\,(a\,\mtimes\ (b\,\mtimes\ c)) \preceq (a\,\mtimes\ b)\,\mtimes\ c$
 
+            (РРМ 14)            $\mathtt{leq}\,(a\,\mtimes\ b) \preceq \begin{cases}
+\mathtt{true} &\text{если } a\preceq b \\
+\mathtt{false} &\text{в противном случае}
+\end{cases}$
+
+    Опреления $\mathtt{true}$ и $\mathtt{false}$ из (РРМ 14) даны ниже.
     Множества $\mathcal{F}_A$ и $\mathcal{C}_A$ замкнуты относительно $\otimes$ и $\circ$ в следующем смысле:
 
                                 $f\,\mtimes\ a \in \mathcal{F}_A$
@@ -115,7 +121,7 @@
 
                       $\mathtt{select} \equiv \mathtt{apply}\,\mcirc\ (\mathtt{id}\,\mtimes\ (\mathtt{id}\,\mtimes\ \mathtt{null}))$
 
-    Элементы $\otimes$, $\circ$, $\mathtt{del}$, $\mathtt{dup}$, $\mathtt{swap}$, $\mathtt{curry}$, $\mathtt{uncurry}$, $\mathtt{assoc}$, $\mathtt{unassoc}$, $\mathtt{id}$,
+    Элементы $\otimes$, $\circ$, $\mathtt{del}$, $\mathtt{dup}$, $\mathtt{swap}$, $\mathtt{curry}$, $\mathtt{uncurry}$, $\mathtt{assoc}$, $\mathtt{unassoc}$, $\mathtt{leq}$, $\mathtt{id}$,
     $\mathtt{null}$, а также их комбинации, являющиеся нормальными формами, называются
     <em>комбинаторами</em> РРМ.
 
