@@ -1,0 +1,46 @@
+fmod ERM is  
+    sort Erm .
+
+    op __ : Erm Erm -> Erm .  
+    op _*_ : Erm Erm -> Erm .  
+    op _@_ : Erm Erm -> Erm .  
+
+*** del, dup, swap, apply, assoc, unassoc, eq, id, null
+
+    op delC : -> Erm .  
+    op dupC : -> Erm .  
+    op swapC : -> Erm .  
+    op applyC : -> Erm .  
+    op assocC : -> Erm .  
+    op unassocC : -> Erm .  
+    op eqC : -> Erm .  
+    op idC : -> Erm .  
+    op nullC : -> Erm .  
+
+    vars A B : Erm .  
+    vars C D : Erm .  
+
+    eq (A * B) C = A (B C) .
+    eq (A @ B) (C @ D) = (A C) @ (B D) .
+    eq idC A = A .
+    eq A idC = A .
+    eq dupC A = A @ A .
+    eq delC A = idC .
+    eq swapC (A @ B) = B @ A .
+    eq applyC (A @ B) = A B .
+    eq assocC ((A @ B) @ C) = A @ (B @ C) .
+    eq unassocC (A @ (B @ C)) = (A @ B) @ C .
+
+    op trueC : -> Erm .  
+    op falseC : -> Erm .  
+    op selectC : -> Erm .  
+
+    eq trueC = applyC * (idC @ delC) .    
+    eq falseC = applyC * (delC @ idC) .
+    eq selectC = applyC * (idC @ (idC @ nullC)) .
+
+    op fC : -> Erm .  
+    op aC : -> Erm .  
+
+    eq fC aC = trueC .
+endfm

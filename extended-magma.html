@@ -80,7 +80,7 @@
 
     <em>Расширенная редуктивная магма</em>, по определению, это <a href="./reductive-magma-definition.html">конфлюэнтная редуктивная магма</a><sup>1</sup>,
     которая содержит в своем базовом множестве функциональные нормальные формы $\otimes$, $\circ$, $\mathtt{del}$,
-    $\mathtt{dup}$, $\mathtt{swap}$, $\mathtt{curry}$, $\mathtt{uncurry}$, $\mathtt{assoc}$, $\mathtt{unassoc}$, $\mathtt{eq}$ и нормальные формы $\mathtt{id}$, $\mathtt{null}$,
+    $\mathtt{dup}$, $\mathtt{swap}$, $\applyC$, $\mathtt{assoc}$, $\mathtt{unassoc}$, $\mathtt{eq}$ и нормальные формы $\mathtt{id}$, $\mathtt{null}$,
     удовлетворяющие следующим аксиомам для любых $a$, $b$, $c$ и $d$:
 
     (РРМ 1)             $(a\,\mcirc\,b)\,c \preceq a\,(b\,c)$
@@ -101,15 +101,13 @@
 
     (РРМ 9)             $\mathtt{swap}\,(a\,\mtimes\ b) \preceq b\,\mtimes\ a$
 
-    (РРМ 10)            $(\mathtt{curry}\,a)\,b\,c \preceq a\,(b\,\mtimes\ c)$
+    (РРМ 10)            $\applyC\,(a\,\mtimes\ b) \preceq a\,b$
 
-    (РРМ 11)            $(\mathtt{uncurry}\,a)\,(b\,\mtimes\ c) \preceq a\,b\,c$
+    (РРМ 11)            $\mathtt{assoc}\,((a\,\mtimes\ b)\,\mtimes\ c) \preceq a\,\mtimes\ (b\,\mtimes\ c)$
 
-    (РРМ 12)            $\mathtt{assoc}\,((a\,\mtimes\ b)\,\mtimes\ c) \preceq a\,\mtimes\ (b\,\mtimes\ c)$
+    (РРМ 12)            $\mathtt{unassoc}\,(a\,\mtimes\ (b\,\mtimes\ c)) \preceq (a\,\mtimes\ b)\,\mtimes\ c$
 
-    (РРМ 13)            $\mathtt{unassoc}\,(a\,\mtimes\ (b\,\mtimes\ c)) \preceq (a\,\mtimes\ b)\,\mtimes\ c$
-
-    (РРМ 14)            $\mathtt{eq}\,(a\,\mtimes\ b) \preceq \begin{cases}
+    (РРМ 13)            $\mathtt{eq}\,(a\,\mtimes\ b) \preceq \begin{cases}
 \mathtt{true} &\text{если } a = b \\
 \mathtt{false} &\text{в противном случае}
 \end{cases}$
@@ -132,15 +130,13 @@
 
     Введём обозначения:
 
-                      $\mathtt{apply} \equiv \mathtt{uncurry}\,\mathtt{id}$
-
                       $\mathtt{true} \equiv \mathtt{head} \equiv \mathtt{apply}\,\mcirc\ (\mathtt{id}\,\mtimes\ \mathtt{del})$
 
                       $\mathtt{false} \equiv \mathtt{tail} \equiv \mathtt{apply}\,\mcirc\ (\mathtt{del}\,\mtimes\ \mathtt{id})$
 
                       $\mathtt{select} \equiv \mathtt{apply}\,\mcirc\ (\mathtt{id}\,\mtimes\ (\mathtt{id}\,\mtimes\ \mathtt{null}))$
 
-    Элементы $\otimes$, $\circ$, $\mathtt{del}$, $\mathtt{dup}$, $\mathtt{swap}$, $\mathtt{curry}$, $\mathtt{uncurry}$, $\mathtt{assoc}$, $\mathtt{unassoc}$, $\mathtt{eq}$, $\mathtt{id}$,
+    Элементы $\otimes$, $\circ$, $\mathtt{del}$, $\mathtt{dup}$, $\mathtt{swap}$, $\mathtt{apply}$, $\mathtt{assoc}$, $\mathtt{unassoc}$, $\mathtt{eq}$, $\mathtt{id}$,
     $\mathtt{null}$, а также их комбинации, являющиеся нормальными формами, называются
     <em>комбинаторами</em> РРМ.
 
