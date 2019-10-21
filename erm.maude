@@ -24,6 +24,8 @@ fmod ERM is
     eq (A @ B) (C @ D) = (A C) @ (B D) .
     eq idC A = A .
     eq A idC = A .
+    eq nullC A = nullC .
+    eq A nullC = nullC .
     eq dupC A = A @ A .
     eq delC A = idC .
     eq swapC (A @ B) = B @ A .
@@ -40,7 +42,9 @@ fmod ERM is
     eq selectC = applyC * (idC @ (idC @ nullC)) .
 
     op fC : -> Erm .  
+    op gC : -> Erm .  
     op aC : -> Erm .  
 
     eq fC aC = trueC .
+    eq gC aC = falseC .
 endfm
