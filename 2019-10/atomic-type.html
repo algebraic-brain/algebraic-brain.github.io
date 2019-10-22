@@ -36,7 +36,7 @@
                 "\\headC": "\\mathtt{head}",
                 "\\tailC": "\\mathtt{tail}",
                 "\\selectC": "\\mathtt{select}",
-                "\\PropC": "\\mathtt{Prop}",
+                "\\SelC": "\\mathtt{Sel}",
             }
         });
     }
@@ -73,33 +73,35 @@
     Заметим, что <a href="./extended-magma.html">комбинатор</a> <a href="./extended-magma.html">$\selectC$</a> позволяет превратить пропозициональный тип
     в селективный. Пусть, например, $a$ имеет тип $\langle f\rangle$. Покажем, что для
 
-                        $\mathtt{Prop}(f) = \selectC\,\mcirc\,(f\,\mtimes\ \idC)\,\mcirc\,(\idC\,\mtimes\ \dupC)\,\mcirc\,\dupC$
+                      $\mathtt{Sel}(f) = \selectC\,\mcirc\,(f\,\mtimes\ \idC)\,\mcirc\,(\idC\,\mtimes\ \dupC)\,\mcirc\,\dupC$
                         
-    верно $a : \{\PropC(f)\}$. Действительно,
+    верно $a : \{\SelC(f)\}$. Действительно,
 
-                        $(\selectC\,\mcirc\,(f\,\mtimes\ \idC)\,\mcirc\,(\idC\,\mtimes\ \dupC)\,\mcirc\,\dupC)\,a \preceq$
+                      $(\selectC\,\mcirc\,(f\,\mtimes\ \idC)\,\mcirc\,(\idC\,\mtimes\ \dupC)\,\mcirc\,\dupC)\,a \preceq$
 
-                        $(\selectC\,\mcirc\,(f\,\mtimes\ \idC)\,\mcirc\,(\idC\,\mtimes\ \dupC))\,(a\,\mtimes\ a) \preceq$
+                      $(\selectC\,\mcirc\,(f\,\mtimes\ \idC)\,\mcirc\,(\idC\,\mtimes\ \dupC))\,(a\,\mtimes\ a) \preceq$
 
-                        $\selectC\,((f\,\mtimes\ \idC)\,(a\,\mtimes\ (a\,\mtimes\ a))) \preceq$
+                      $\selectC\,((f\,\mtimes\ \idC)\,(a\,\mtimes\ (a\,\mtimes\ a))) \preceq$
 
-                        $\selectC\,((f\,a)\,\mtimes\ (a\,\mtimes\ a)) \preceq$
+                      $\selectC\,((f\,a)\,\mtimes\ (a\,\mtimes\ a)) \preceq$
 
-                        $\selectC\,(\trueC\,\mtimes\ (a\,\mtimes\ a)) =$
+                      $\selectC\,(\trueC\,\mtimes\ (a\,\mtimes\ a)) =$
 
-                        $(\applyC\,\mcirc\ (\idC\,\mtimes\ (\idC\,\mtimes\ \nullC)))\,(\trueC\,\mtimes\ (a\,\mtimes\ a)) \preceq$
+                      $(\applyC\,\mcirc\ (\idC\,\mtimes\ (\idC\,\mtimes\ \nullC)))\,(\trueC\,\mtimes\ (a\,\mtimes\ a)) \preceq$
 
-                        $\applyC\,\mcirc\ (\trueC\,\mtimes\ ((\idC\,\mtimes\ \nullC)\,(a\,\mtimes\ a)))\preceq$
+                      $\applyC\,\mcirc\ (\trueC\,\mtimes\ ((\idC\,\mtimes\ \nullC)\,(a\,\mtimes\ a)))\preceq$
 
-                        $\applyC\,\mcirc\ (\trueC\,\mtimes\ (a\,\mtimes\ \nullC))\preceq$
+                      $\applyC\,\mcirc\ (\trueC\,\mtimes\ (a\,\mtimes\ \nullC))\preceq$
 
-                        $\trueC\,(a\,\mtimes\ \nullC)\preceq$
+                      $\trueC\,(a\,\mtimes\ \nullC)\preceq$
 
-                        $a$
+                      $a$
 
     Таким же образом можно показать, что если $a$ не имеет тип $\langle f\rangle$ и $f\,a \preceq \falseC$, то
-    $\PropC(f)\,a \preceq \nullC$.
+    $\SelC(f)\,a \preceq \nullC$.
 
+    <b>TODO:</b> Показать, что инэквациональный тип можно превратить в пропозициональный.
+    <b>TODO:</b> Оформить расчеты в Maude как следует.
 
     <a href="./extended-magma.html">&lt;&lt;</a>                                                                        >>
                                         <a href="../index.html"><i class="fas fa-home"></i></a>
