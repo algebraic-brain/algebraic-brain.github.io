@@ -20,18 +20,18 @@ fmod ERM is
     vars A B : Erm .  
     vars C D : Erm .  
 
-    eq (A * B) C = A (B C) .
-    eq (A @ B) (C @ D) = (A C) @ (B D) .
-    eq idC A = A .
-    eq A idC = A .
+    eq delC A = idC .
     eq nullC A = nullC .
     eq A nullC = nullC .
-    eq dupC A = A @ A .
-    eq delC A = idC .
-    eq swapC (A @ B) = B @ A .
-    eq applyC (A @ B) = A B .
-    eq assocC ((A @ B) @ C) = A @ (B @ C) .
-    eq unassocC (A @ (B @ C)) = (A @ B) @ C .
+    eq (A ** B) C = A (B C) .
+    eq (A && B) (C && D) = (A C) && (B D) .
+    eq idC A = A .
+    eq A idC = A .
+    eq dupC A = A && A .
+    eq swapC (A && B) = B && A .
+    eq applyC (A && B) = A B .
+    eq assocC ((A && B) && C) = A && (B && C) .
+    eq unassocC (A && (B && C)) = (A && B) && C .
 
     op trueC : -> Erm .  
     op falseC : -> Erm .  
